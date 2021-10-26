@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.RedefinicaoSenhaController">
+   <children>
+      <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
+         <children>
+            <Button fx:id="btnEnviarEmail" layoutX="132.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnRecuperarOnClick" prefHeight="74.0" prefWidth="443.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Enviar por E-mail" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+            </Button>
+            <Label layoutX="132.0" layoutY="163.0" prefHeight="58.0" prefWidth="92.0" text="E-mail:" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailTextField" layoutX="233.0" layoutY="172.0" prefHeight="41.0" prefWidth="342.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
+         <children>
+            <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+                <font>
+                <Font name="Segoe UI" size="20.0" />
+                </font>
+            </Button>
+            <Label layoutX="143.0" layoutY="8.0" prefHeight="65.0" prefWidth="422.0" text="Redefinição de Senha">
+               <font>
+                  <Font name="Segoe UI" size="44.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVoltar" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnVoltarOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Button>            
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
