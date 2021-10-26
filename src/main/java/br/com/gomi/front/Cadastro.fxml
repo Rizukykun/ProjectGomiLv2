@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+
+<AnchorPane id="AnchorPane" prefHeight="563.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.CadastroController">
+    <children>
+        <AnchorPane layoutY="97.0" prefHeight="466.0" prefWidth="707.0" style="-fx-background-color: #38414e;">
+            <children>
+                <Label fx:id="emailLabel" layoutX="33.0" layoutY="17.0" text="E-mail" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="emailTextField" layoutX="144.0" layoutY="13.0" onKeyReleased="#emailTextKeyReleased" prefHeight="25.0" prefWidth="195.0" promptText="cadastro@email.com.br" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="nomecompletoLabel" layoutX="33.0" layoutY="66.0" text="Nome Completo" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="nomeTextField" layoutX="144.0" layoutY="62.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="cpf" layoutX="34.0" layoutY="111.0" text="CPF" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="cpfTextField" layoutX="144.0" layoutY="107.0" prefHeight="25.0" prefWidth="195.0" promptText="000.000.000-00" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label layoutX="33.0" layoutY="153.0" text="Data de Nascimento" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="dataNascimentoTextField" layoutX="144.0" layoutY="149.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label layoutX="33.0" layoutY="192.0" text="Telefone" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="telefoneTextField" layoutX="144.0" layoutY="188.0" prefHeight="25.0" prefWidth="195.0" promptText="(00) 0 0000-0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label layoutX="33.0" layoutY="234.0" text="Senha" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+            <PasswordField fx:id="senhaPasswordField" layoutX="144.0" layoutY="231.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></PasswordField>
+                <Label layoutX="33.0" layoutY="275.0" text="Confirmar Senha" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+            <PasswordField fx:id="confirmacaoSenhaPasswordField" layoutX="144.0" layoutY="270.0" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></PasswordField>
+            <StackPane layoutX="6.0" layoutY="307.0" prefHeight="150.0" prefWidth="162.0" style="-fx-border-color: #2E8B57;">
+               <children>
+                      <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: green;" />
+               </children>
+            </StackPane>
+                <Button fx:id="btnCarregaFotoUser" layoutX="172.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnCarregaFotoUserOnClick" prefHeight="46.0" prefWidth="54.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="13.0" />
+                    </font>
+                </Button>
+                <RadioButton fx:id="clienteRadioButton" layoutX="262.0" layoutY="326.0" mnemonicParsing="false" onAction="#rdbClienteOnToggle" text="Cliente" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="15.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="motoristaRadioButton" layoutX="262.0" layoutY="371.0" mnemonicParsing="false" onAction="#rdbMotoristaOnToggle" text="Motorista" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="15.0" />
+                    </font>
+                    <toggleGroup>
+                        <fx:reference source="group" />
+                    </toggleGroup>
+                </RadioButton>
+                <Separator layoutX="374.0" layoutY="6.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="6.0" />
+            <StackPane fx:id="imgStackPane" layoutX="411.0" layoutY="18.0" prefHeight="135.0" prefWidth="145.0" style="-fx-border-color: #2E8B57;">
+               <children>
+                      <ImageView fx:id="fotoImg" fitHeight="128.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+                <Button fx:id="fotoCnhButton" layoutX="574.0" layoutY="105.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Foto CNH" textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Button>
+                <Label fx:id="cepLabel" layoutX="420.0" layoutY="22.0" text="CEP" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="cepTextField" layoutX="501.0" layoutY="20.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="ruaLabel" layoutX="419.0" layoutY="68.0" text="Rua" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="ruaTextField" layoutX="500.0" layoutY="66.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="numeroLabel" layoutX="419.0" layoutY="113.0" text="Número" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="numeroTextField" layoutX="500.0" layoutY="111.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="complementoLabel" layoutX="419.0" layoutY="155.0" text="Complemento" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="complementoTextField" layoutX="501.0" layoutY="153.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="numCnhLabel" layoutX="403.0" layoutY="179.0" text="Nº CNH" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="cnhTextField" layoutX="502.0" layoutY="175.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="bairroLabel" layoutX="420.0" layoutY="196.0" text="Bairro" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="bairroTextField" layoutX="501.0" layoutY="194.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="cnhCategoriaLabel" layoutX="404.0" layoutY="219.0" prefHeight="25.0" prefWidth="92.0" text="Categoria CNH" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="cnhCategoriaTextField" layoutX="502.0" layoutY="219.0" prefHeight="25.0" prefWidth="195.0" promptText="Categotia A, B, C..." style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="cidadeLabel" layoutX="419.0" layoutY="236.0" text="Cidade" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="cidadeTextField" layoutX="501.0" layoutY="234.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="dataExpLabel" layoutX="403.0" layoutY="263.0" text="Data Exp." textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="dataExpiracaoTextField" layoutX="502.0" layoutY="260.0" prefHeight="25.0" prefWidth="195.0" promptText="00/00/0000" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="tipoVeiculoLabel" layoutX="404.0" layoutY="303.0" text="Tipo Veículo" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="tipoVeiculoTextField" layoutX="502.0" layoutY="299.0" prefHeight="25.0" prefWidth="195.0" promptText="Caminhonete..." style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Label fx:id="cargaLabel" layoutX="404.0" layoutY="343.0" text="Carga Suportada" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Label>
+                <TextField fx:id="cargaSuportadaTextField" layoutX="503.0" layoutY="338.0" prefHeight="25.0" prefWidth="195.0" promptText="kg/quantidade" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+                <Button fx:id="cadastrarButton" layoutX="394.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnCadastrarOnClick" prefHeight="41.0" prefWidth="300.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastrar" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="74.0" prefWidth="707.0" style="-fx-background-color: #00CC66;">
+            <children>
+                <Button fx:id="btnClose" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnMin" layoutX="578.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMinClick" prefHeight="46.0" prefWidth="40.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="20.0" />
+                    </font>
+                </Button>
+                <Label layoutX="259.0" layoutY="8.0" prefHeight="65.0" prefWidth="189.0" text="Cadastro">
+                    <font>
+                        <Font name="Segoe UI" size="44.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnVoltar" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnVoltarOnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Voltar" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

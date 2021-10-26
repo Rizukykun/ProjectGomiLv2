@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="435.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.gomi.front.Controllers.LoginController">
+   <children>
+      <AnchorPane layoutX="-6.0" layoutY="134.0" prefHeight="478.0" prefWidth="452.0" style="-fx-background-color: #38414e;">
+         <children>
+            <ImageView fx:id="imgSobre" fitHeight="46.0" fitWidth="46.0" layoutX="14.0" layoutY="418.0" onDragDetected="#imgSobreOnClick" onMouseClicked="#imgSobreOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagens/info.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="129.0" fitWidth="138.0" layoutX="172.0" layoutY="-11.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagens/user.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="8.0" layoutY="376.0" prefHeight="33.0" prefWidth="445.0" />
+            <Button fx:id="btnLogin" layoutX="79.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnLoginOnClick" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Entrar" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Button>
+            <Hyperlink fx:id="lnkEsqueceuSenha" layoutX="177.0" layoutY="254.0" onAction="#lnkEsqueceuSenhaOnClick" text="Esqueci minha senha" textFill="#a7fcb9">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Hyperlink>
+            <Button fx:id="btnCadastrar" layoutX="80.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnCadastrarOnClick" prefHeight="40.0" prefWidth="317.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="Cadastre-se" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></Button>
+            <TextField fx:id="loginTextField" layoutX="79.0" layoutY="142.0" onAction="#btnLoginOnClick" prefHeight="40.0" prefWidth="317.0" promptText="E-mail" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #ffffff;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></TextField>
+            <PasswordField fx:id="senhaPasswordField" layoutX="78.0" layoutY="199.0" onAction="#btnLoginOnClick" prefHeight="40.0" prefWidth="317.0" promptText="Senha" style="-fx-background-color: #38414e; -fx-border-color: #2E8B57; -fx-text-fill: #FFFFFF;">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font></PasswordField>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="120.0" prefWidth="447.0" style="-fx-background-color: #00CC66;">
+         <children>
+            <Button fx:id="btnClose" layoutX="393.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseClick" prefHeight="46.0" prefWidth="29.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="345.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMinClick" prefHeight="46.0" prefWidth="40.0" style="-fx-background-color: #4b5767; -fx-border-color: #2E8B57;" text="-" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
