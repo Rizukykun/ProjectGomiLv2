@@ -52,7 +52,7 @@ public class Validacao {
     }
 
     //O usuario existe
-    public static boolean usuarioExiste(String usuario) throws SQLException {
+    public static boolean usuarioExiste(String usuario) throws Exception {
         UsuarioViewModel user = new UsuarioDAO().consultaEmail(usuario);
         return user != null;
     }

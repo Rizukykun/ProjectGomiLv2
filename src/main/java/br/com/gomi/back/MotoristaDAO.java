@@ -54,7 +54,7 @@ public class MotoristaDAO extends PadraoDAO<MotoristaViewModel> {
         qtdParametros = " ?, ?, ?, ?, ?, ?";
     }
 
-    public MotoristaViewModel fullConsult(int idMotorista) throws SQLException {
+    public MotoristaViewModel fullConsult(int idMotorista) throws Exception {
         String[] parametros = {String.valueOf(idMotorista)};
         JDataTable tab = HelperDAO.executaProcSelect("spConsultMotorista ?", parametros);
         if (tab == null) {

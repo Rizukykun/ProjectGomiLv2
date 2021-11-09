@@ -16,7 +16,7 @@ import java.util.HashMap;
  */
 public class LoginDAO {
 
-    public UsuarioViewModel login(String usuario, String senha) throws SQLException {
+    public UsuarioViewModel login(String usuario, String senha) throws Exception {
         String[] parametros = {usuario, senha};
         JDataTable tabela = HelperDAO.executaProcSelect("spLogin ?, ?", parametros);
         if (tabela == null) {
