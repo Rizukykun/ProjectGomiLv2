@@ -1,6 +1,8 @@
 package br.com.gomi.api;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -25,6 +27,7 @@ public abstract class CadastroServlet extends PadraoServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		resp.addHeader("Access-Control-Allow-Origin", "*");
 		int sc;
 		String textResponse = "";
@@ -34,7 +37,7 @@ public abstract class CadastroServlet extends PadraoServlet {
 			sc = HttpServletResponse.SC_OK;
 		} catch (Exception e) {
 			sc = HttpServletResponse.SC_BAD_REQUEST;
-			textResponse = e.getMessage();
+			e.printStackTrace(resp.getWriter());
 		}
 
 		resp.setStatus(sc);
@@ -91,7 +94,7 @@ public abstract class CadastroServlet extends PadraoServlet {
 		model.setTelefoneddd(Integer.parseInt(telefone.substring(1, 3)));
 		model.setTelefone(Integer.parseInt(telefone.substring(4)));
 		model.setCpf(cpf.trim());
-		model.setData(LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+		model.setData(LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		model.setSenha(senha);
 
 		if (ehCliente) {
