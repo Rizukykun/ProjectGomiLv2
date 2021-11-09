@@ -68,7 +68,7 @@ public class UsuarioDAO extends PadraoDAO<UsuarioViewModel>
         qtdParametros = " ?, ?, ?, ?, ?, ?, ?, ?";
     }
     
-    public UsuarioViewModel consultaEmail(String email) throws SQLException{
+    public UsuarioViewModel consultaEmail(String email) throws Exception{
         String[] parametros = {email};
         JDataTable tab = HelperDAO.executaProcSelect("spUsuario ?", parametros);
         if (tab == null)

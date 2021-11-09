@@ -17,7 +17,7 @@ import java.sql.PreparedStatement;
 public class HelperDAO {
 
     //Executa uma procedure
-    public static void executaProc(String sql, String[] parametros) throws SQLException {
+    public static void executaProc(String sql, String[] parametros) throws Exception {
         try (Connection conexao = ConexaoBD.getConexao()) {
             PreparedStatement comando = conexao.prepareStatement(sql);
             for (int i = 1; i <= parametros.length; i++) {
@@ -33,7 +33,7 @@ public class HelperDAO {
     }
 
     //Criar uma tabela intermediaria com o nome do campo e as linhas. Executa uma procedure que devolve o valor
-    public static JDataTable executaProcSelect(String sql, String[] parametros) throws SQLException {
+    public static JDataTable executaProcSelect(String sql, String[] parametros) throws Exception {
         try (Connection conexao = ConexaoBD.getConexao()) {
             PreparedStatement comando = conexao.prepareStatement(sql);
             for (int i = 1; i <= parametros.length; i++) {

@@ -10,7 +10,7 @@ import br.com.gomi.back.ConexaoBD;
 class ConexaoBDTest {
 
 	@Test
-	void testGetConexao() throws SQLException {
+	void testGetConexao() throws Exception {
 		Connection connect = ConexaoBD.getConexao();
 		assertEquals(connect.isValid(0), true);
 	}
