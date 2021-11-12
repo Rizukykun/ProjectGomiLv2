@@ -20,16 +20,18 @@ public class SolicitacaoMotoristaServlet extends PadraoServlet {
 	}
 
 	@Override
-	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
+		resp.setContentType("application/json");
+		
 		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
 
 		try {
 			SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
 			if (model.getIdMotorista() != null) {
-				textResponse = new Gson().toJson(Dados.recuperaMotorista(model.getIdMotorista()));
+				resp.getWriter().append(new Gson().toJson(Dados.recuperaMotorista(model.getIdMotorista())));
 			} else {
-				textResponse = "{ null }";
+				resp.getWriter().append("{ null }");
 			}
 			return HttpServletResponse.SC_OK;
 		} catch (Exception e) {

@@ -21,7 +21,7 @@ public class LoginServlet extends PadraoServlet {
 	}
 
 	@Override
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		resp.setContentType("application/json");
 		

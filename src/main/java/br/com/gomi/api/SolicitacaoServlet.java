@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.ClienteViewModel;
+import br.com.gomi.shared.SessaoViewModel;
 import br.com.gomi.shared.SolicitacaoViewModel;
 
 @WebServlet("/Solicitacao")
@@ -27,6 +28,8 @@ public class SolicitacaoServlet extends PadraoServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int sc;
 		String textResponse = "";
+		
+		resp.setContentType("application/json");
 
 		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
 
@@ -48,17 +51,21 @@ public class SolicitacaoServlet extends PadraoServlet {
 	}
 
 	@Override
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 
-		// Validar sessão
+		resp.setContentType("application/json");
+		
+		String sessaoHash = req.getHeader("sessao");
 		String descricao = req.getParameter("descricao");
 
 		try {
+			int idCliente = Validacao.sessaoExiste(sessaoHash).getIdCliente();
+			
 			Validacao.validaSolicitacao(descricao);
 
 			SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
-			ClienteViewModel cliente = null;// Cliente da sessão
+			ClienteViewModel cliente = Dados.recuperaClienteImcompleto(idCliente);// Cliente da sessão
 			solicitacao.setIdCliente(cliente.getIdCliente());
 			solicitacao.setCep(cliente.getCep());
 			solicitacao.setNumero(cliente.getNumero());
@@ -68,8 +75,8 @@ public class SolicitacaoServlet extends PadraoServlet {
 			// adicionar categorias na lista
 			solicitacao.setId(Dados.insereSolicitacao(solicitacao));
 
-			textResponse = "{\"id\":\"" + solicitacao.getId() + "\"}";
-			return HttpServletResponse.SC_ACCEPTED;
+			resp.getWriter().append("{\"id\":\"" + solicitacao.getId() + "\"}");
+			return HttpServletResponse.SC_CREATED;
 		} catch (Exception e) {
 			e.printStackTrace(resp.getWriter());
 			return HttpServletResponse.SC_BAD_REQUEST;

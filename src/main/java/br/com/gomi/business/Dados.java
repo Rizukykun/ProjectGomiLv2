@@ -156,4 +156,9 @@ public class Dados {
 		
 		return sha256hex;
 	}
+
+	public static ClienteViewModel recuperaClienteImcompleto(int idCliente) throws Exception {
+		ClienteViewModel cli = new ClienteDAO().consult(idCliente);
+		return cli;        
+	}
 }

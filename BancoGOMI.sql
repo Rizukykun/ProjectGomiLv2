@@ -337,3 +337,9 @@ begin
 	select 0.0 as 'Id'
 end
 go
+
+create procedure spConsultSessao (@sessaoHash varchar(256)) as
+begin
+	select * from Sessao where HashSessao = @sessaoHash
+end
+go

@@ -21,12 +21,14 @@ public class MotoristaServlet extends CadastroServlet {
 	}
 
 	@Override
-	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
+		resp.setContentType("application/json");
+		
 		int idMotorista = Integer.valueOf(req.getParameter("idMotorista"));
 		
 		try {
-			textResponse = new Gson().toJson(Dados.recuperaMotorista(idMotorista));
+			resp.getWriter().append(new Gson().toJson(Dados.recuperaMotorista(idMotorista)));
 			return HttpServletResponse.SC_ACCEPTED;
 		} catch (Exception e) {			
 			e.printStackTrace(resp.getWriter());

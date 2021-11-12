@@ -23,10 +23,10 @@ public abstract class CadastroServlet extends PadraoServlet {
 	}
 	
 	@Override
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp, String textResponse) throws IOException {
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		try {
 			CadastraUsuario(req, isUsuario);
-			return HttpServletResponse.SC_OK;
+			return HttpServletResponse.SC_CREATED;
 		} catch (Exception e) {			
 			e.printStackTrace(resp.getWriter());
 			return HttpServletResponse.SC_BAD_REQUEST;

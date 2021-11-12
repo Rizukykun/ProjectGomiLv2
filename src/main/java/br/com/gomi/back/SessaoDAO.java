@@ -1,5 +1,6 @@
 package br.com.gomi.back;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -22,7 +23,8 @@ public class SessaoDAO extends PadraoDAO<SessaoViewModel> {
 	protected SessaoViewModel MontaModel(HashMap<String, Object> registro) {
 		SessaoViewModel t = new SessaoViewModel();
 		t.setHashSessao((String) registro.get("HashSessao"));
-		t.setTempoLimite((LocalDateTime) registro.get("TempoLimite"));
+		Timestamp timeStamp = (Timestamp) registro.get("TempoLimite");
+		t.setTempoLimite(timeStamp.toLocalDateTime());
 		t.setIdCliente((int) registro.get("IdCliente"));
 		return t;
 	}
@@ -35,6 +37,16 @@ public class SessaoDAO extends PadraoDAO<SessaoViewModel> {
 	@Override
 	protected void setQtdParametros() {
 		qtdParametros = " ?, ?, ?";
+	}
+
+	public SessaoViewModel consultaSessao(String sessao) throws Exception {
+		String[] parametros = {sessao};
+        JDataTable tab = HelperDAO.executaProcSelect("spConsultSessao ?", parametros);
+        if (tab == null) {
+            return null;
+        } else {
+            return MontaModel(tab.getLinha(1));
+        }
 	}
 
 }

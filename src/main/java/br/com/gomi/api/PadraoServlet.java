@@ -35,7 +35,7 @@ public abstract class PadraoServlet extends HttpServlet {
 		int sc;
 		String textResponse = "";
 
-		sc = metodoGet(req, resp, textResponse);
+		sc = metodoGet(req, resp);
 
 		resp.setStatus(sc);
 
@@ -52,7 +52,7 @@ public abstract class PadraoServlet extends HttpServlet {
 		int sc;
 		String textResponse = "";
 
-		sc = metodoPost(req, resp, textResponse);
+		sc = metodoPost(req, resp);
 
 		resp.setStatus(sc);
 
@@ -62,13 +62,13 @@ public abstract class PadraoServlet extends HttpServlet {
 		}
 	}
 
-	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		return 501;
 
 	}
 
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 				return 501;
 
