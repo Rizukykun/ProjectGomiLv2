@@ -8,7 +8,14 @@ package br.com.gomi.business;
 import br.com.gomi.back.*;
 import br.com.gomi.shared.*;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.List;
+import java.util.Random;
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -130,4 +137,23 @@ public class Dados {
         SolicitacaoDAO dao = new SolicitacaoDAO();
         return dao.listarAbertas();
     }
+    
+    private static int TempoDeSessao = 1; //segundos //1hora
+	
+	public static String CriarSessão(int usuarioId) throws Exception {
+		Random random = new Random();
+		Double seed = random.nextDouble();
+		String sha256hex = DigestUtils.sha256Hex(seed.toString());
+		
+		SessaoViewModel model = new SessaoViewModel();
+		model.setHashSessao(sha256hex);
+		model.setIdCliente(usuarioId);
+		model.setTempoLimite(LocalDateTime.now().plusHours(TempoDeSessao));
+		
+		SessaoDAO dao = new SessaoDAO();
+		
+		dao.insert(model);
+		
+		return sha256hex;
+	}
 }

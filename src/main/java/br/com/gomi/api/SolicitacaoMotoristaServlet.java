@@ -1,9 +1,7 @@
 package br.com.gomi.api;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,38 +9,38 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import br.com.gomi.business.Dados;
+import br.com.gomi.shared.SolicitacaoViewModel;
 
-@WebServlet("/Motorista")
-public class MotoristaServlet extends CadastroServlet {
+@WebServlet("/Solicitacao/Motorista")
+public class SolicitacaoMotoristaServlet extends PadraoServlet {
 	private static final long serialVersionUID = 1L;
 
-	public MotoristaServlet() {
+	public SolicitacaoMotoristaServlet() {
 		super();
 	}
 
 	@Override
 	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp, String textResponse)
 			throws IOException {
-		int idMotorista = Integer.valueOf(req.getParameter("idMotorista"));
-		
+		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
+
 		try {
-			textResponse = new Gson().toJson(Dados.recuperaMotorista(idMotorista));
-			return HttpServletResponse.SC_ACCEPTED;
-		} catch (Exception e) {			
+			SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
+			if (model.getIdMotorista() != null) {
+				textResponse = new Gson().toJson(Dados.recuperaMotorista(model.getIdMotorista()));
+			} else {
+				textResponse = "{ null }";
+			}
+			return HttpServletResponse.SC_OK;
+		} catch (Exception e) {
 			e.printStackTrace(resp.getWriter());
 			return HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 		}
 	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		isUsuario = false;
-		super.doPost(req, resp);
-	}
 
 	@Override
 	protected void setMethods() {
-		methods = "GET, POST";
+		methods = "GET";
 	}
 
 }

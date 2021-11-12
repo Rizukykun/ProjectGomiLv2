@@ -1,12 +1,9 @@
 package br.com.gomi.api;
 
 import java.io.IOException;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,27 +21,15 @@ public abstract class CadastroServlet extends PadraoServlet {
 	public CadastroServlet() {
 		super();
 	}
-
+	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
-		resp.addHeader("Access-Control-Allow-Origin", "*");
-		int sc;
-		String textResponse = "";
-
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp, String textResponse) throws IOException {
 		try {
 			CadastraUsuario(req, isUsuario);
-			sc = HttpServletResponse.SC_OK;
-		} catch (Exception e) {
-			sc = HttpServletResponse.SC_BAD_REQUEST;
+			return HttpServletResponse.SC_OK;
+		} catch (Exception e) {			
 			e.printStackTrace(resp.getWriter());
-		}
-
-		resp.setStatus(sc);
-
-		if (!textResponse.equals("")) {
-			resp.getWriter().write(textResponse);
-			resp.getWriter().flush();
+			return HttpServletResponse.SC_BAD_REQUEST;
 		}
 	}
 

@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.ClienteViewModel;
@@ -21,9 +23,33 @@ public class SolicitacaoServlet extends PadraoServlet {
 		super();
 	}
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int sc;
 		String textResponse = "";
+
+		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
+
+		try {
+			SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
+			textResponse = new Gson().toJson(model);
+			sc = HttpServletResponse.SC_ACCEPTED;
+		} catch (Exception e) {
+			e.printStackTrace(resp.getWriter());
+			sc = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+		}
+
+		resp.setStatus(sc);
+
+		if (!textResponse.equals("")) {
+			resp.getWriter().write(textResponse);
+			resp.getWriter().flush();
+		}
+	}
+
+	@Override
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp, String textResponse)
+			throws IOException {
 
 		// Validar sessão
 		String descricao = req.getParameter("descricao");
@@ -43,22 +69,16 @@ public class SolicitacaoServlet extends PadraoServlet {
 			solicitacao.setId(Dados.insereSolicitacao(solicitacao));
 
 			textResponse = "{\"id\":\"" + solicitacao.getId() + "\"}";
-			sc = HttpServletResponse.SC_ACCEPTED;
+			return HttpServletResponse.SC_ACCEPTED;
 		} catch (Exception e) {
-			sc = HttpServletResponse.SC_BAD_REQUEST;
-		}
-
-		resp.setStatus(sc);
-
-		if (!textResponse.equals("")) {
-			resp.getWriter().write(textResponse);
-			resp.getWriter().flush();
+			e.printStackTrace(resp.getWriter());
+			return HttpServletResponse.SC_BAD_REQUEST;
 		}
 	}
 
 	@Override
 	protected void setMethods() {
-		methods = "POST";
+		methods = "GET, POST";
 	}
 
 }
