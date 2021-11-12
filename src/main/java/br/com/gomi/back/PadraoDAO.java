@@ -51,7 +51,7 @@ public abstract class PadraoDAO<T> extends PadraoViewModel {
     public T consult(int id) throws Exception {
         String[] parametros = {String.valueOf(id), getTabela()};
         JDataTable tab = HelperDAO.executaProcSelect("spConsult ?, ?", parametros);
-        if (tab.getNumeroLinhas() == 0) {
+        if (tab == null) {
             return null;
         } else {
             return MontaModel(tab.getLinha(1));

@@ -7,35 +7,46 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.entity.ContentType;
+
+import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 
 @WebServlet({ "/Login" })
 public class LoginServlet extends PadraoServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	public LoginServlet() {
 		super();
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		resp.setContentType("application/json");
+		
 		String login = req.getParameter("login");
 		String senha = req.getParameter("senha");
 
 		try {
 			Validacao.validaLogin(login, senha);
-			char tipo = Validacao.validaTipoLogin(senha); // Combinar ambos em um único método
+			char tipo = Validacao.validaTipoLogin(login); // Combinar ambos em um único método
 
-			// Criar sessão no banco. Retornar código de sessão (Maybe fazer-lo ser o hash
-			// do id da sessão
+			int usuarioId; //Testar Hashes repetidos
+			
+			if(tipo == 'M')
+				usuarioId = Dados.recuperaMotorista(login).getId();
+			else
+				usuarioId = Dados.recuperaCliente(login).getId();
+			
+			String sessaoHash = Dados.CriarSessão(usuarioId);
 
-			resp.setStatus(HttpServletResponse.SC_ACCEPTED);
-			// Enviar no body o código de sessão e, maybe, o tipo de usuário
+			resp.getWriter().append("{ \"sessao\" : \"" + sessaoHash + "\" }");
+			return HttpServletResponse.SC_CREATED;
 
 		} catch (Exception e) {
-			resp.setStatus(HttpServletResponse.SC_FORBIDDEN);
-			resp.getWriter().write(e.getMessage());
-			resp.getWriter().flush();
+			e.printStackTrace(resp.getWriter());
+			return HttpServletResponse.SC_FORBIDDEN;
 		}
 	}
 

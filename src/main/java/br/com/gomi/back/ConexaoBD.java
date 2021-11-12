@@ -29,7 +29,7 @@ public class ConexaoBD {
 		if (opcao == 0)
 			strCon = "jdbc:sqlserver://localhost\\SQLEXPRESS2017;databaseName=Gomi;integratedSecurity=false;user=gb;password=GuilhermeBarros";
 		else
-			strCon = "jdbc:sqlserver://localhost;integratedSecurity=false;user=sa;password=1234";
+			strCon = "jdbc:sqlserver://localhost;integratedSecurity=false;databaseName=Gomi;user=sa;password=1234";
 		Connection conexao = DriverManager.getConnection(strCon);
 		return conexao;
 	}

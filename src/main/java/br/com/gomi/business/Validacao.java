@@ -7,8 +7,10 @@ package br.com.gomi.business;
 
 import br.com.gomi.back.LoginDAO;
 import br.com.gomi.back.NaoAdmDAO;
+import br.com.gomi.back.SessaoDAO;
 import br.com.gomi.back.UsuarioDAO;
 import br.com.gomi.shared.NaoAdmViewModel;
+import br.com.gomi.shared.SessaoViewModel;
 import br.com.gomi.shared.UsuarioViewModel;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -183,4 +185,9 @@ public class Validacao {
         tempo = respostaAPI.substring(instrucao, instrucao + 15);
         return tempo.substring(0, tempo.indexOf("\""));
     }
+
+	public static SessaoViewModel sessaoExiste(String sessao) throws Exception {
+		SessaoViewModel sessaoView = new SessaoDAO().consultaSessao(sessao);
+        return sessaoView;
+	}
 }
