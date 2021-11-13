@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -44,20 +43,101 @@ button:hover, a:hover {
 
 <h2 style="text-align:center">Pagina do Usuario</h2>
 
-<div class="card">
-  <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-  <h1>John Doe</h1>
-  <p class="title">Nome do Usuario</p>
-    
-  <p></p>
-  <div style="margin: 24px 0;">
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a>  
-    <a href="#"><i class="fa fa-linkedin"></i></a>  
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-  </div>
-  <p><button>Contact</button></p>
-</div>
+<body>
+  Nome do Usuario: <input type="text" id="emp1" value="" />
+  <p>
+      <input type="button" id="bt1" value="changeNomeText" onclick="changeName()" />
+  </p>
+  <p><label id="lblEmp1">N/A</label></p>
 
+  Genero: <input type="text" id="emp2" value="" />
+  <p>
+      <input type="button" id="bt2" value="changeGenderText" onclick="changeGender()" />
+  </p>
+  <p><label id="lblEmp2">N/A</label></p>
+  
+  Idade: <input type="text" id="emp3" value="" />
+  <p>
+      <input type="button" id="bt3" value="changeIdadeText" onclick="changeIdade()" />
+  </p>
+  <p><label id="lblEmp3">N/A</label></p>
+
+  CPF: <input type="text" id="emp4" value="" />
+  <p>
+      <input type="button" id="bt4" value="changeCPFText" onclick="changeCPF()" />
+  </p>
+  <label id="lblEmp4">N/A</label>
+
+  Status: <input type="text" id="emp5" value="" />
+  <p>
+      <input type="button" id="bt5" value="changeStatusText" onclick="changeStatus()" />
+  </p>
+  <label id="lblEmp5">N/A</label>
+
+  Cidade: <input type="text" id="emp6" value="" />
+  <p>
+      <input type="button" id="bt6" value="changeCidadeText" onclick="changeCidade()" />
+  </p>
+  <label id="lblEmp6">N/A</label>
 </body>
+
+<script>
+  function changeName() {
+      let lbl = document.getElementById('lblEmp1');
+      let empName = document.getElementById('emp1').value;
+
+      // Assign HTML codes along with text values using innerHTML.
+      lbl.innerHTML = '<span style="text-transform:capitalize;">' + empName + '</span>';
+  }
+</script>
+
+<script>
+  function changeGender() {
+      let lbl = document.getElementById('lblEmp2');
+      let empName = document.getElementById('emp2').value;
+
+      // Assign HTML codes along with text values using innerHTML.
+      lbl.innerHTML = '<span style="text-transform:capitalize;">' + empName + '</span>';
+  }
+</script>
+
+<script>
+  function changeIdade() {
+      let lbl = document.getElementById('lblEmp3');
+      let empName = document.getElementById('emp3').value;
+
+      // Assign HTML codes along with text values using innerHTML.
+      lbl.innerHTML = '<span style="text-transform:capitalize;">' + empName + '</span>';
+  }
+</script>
+
+<script>
+  function changeCPF() {
+      let lbl = document.getElementById('lblEmp4');
+      let empName = document.getElementById('emp4').value;
+
+      // Assign HTML codes along with text values using innerHTML.
+      lbl.innerHTML = '<span style="text-transform:capitalize;">' + empName + '</span>';
+  }
+</script>
+
+<script>
+  function changeStatus() {
+      let lbl = document.getElementById('lblEmp5');
+      let empName = document.getElementById('emp5').value;
+
+      // Assign HTML codes along with text values using innerHTML.
+      lbl.innerHTML = '<span style="text-transform:capitalize;">' + empName + '</span>';
+  }
+</script>
+
+<script>
+  function changeCidade() {
+      let lbl = document.getElementById('lblEmp6');
+      let empName = document.getElementById('emp6').value;
+
+      // Assign HTML codes along with text values using innerHTML.
+      lbl.innerHTML = '<span style="text-transform:capitalize;">' + empName + '</span>';
+  }
+</script>
 </html>
