@@ -20,10 +20,9 @@ public class SolicitacaoMotoristaServlet extends PadraoServlet {
 	}
 
 	@Override
-	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		resp.setContentType("application/json");
-		
+
 		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
 
 		try {

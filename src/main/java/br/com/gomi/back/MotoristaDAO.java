@@ -5,10 +5,10 @@
  */
 package br.com.gomi.back;
 
-import java.util.HashMap;
-import br.com.gomi.shared.*;
-import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashMap;
+
+import br.com.gomi.shared.MotoristaViewModel;
 
 /**
  *

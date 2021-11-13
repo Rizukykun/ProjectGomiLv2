@@ -13,7 +13,6 @@ import com.google.gson.Gson;
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.ClienteViewModel;
-import br.com.gomi.shared.SessaoViewModel;
 import br.com.gomi.shared.SolicitacaoViewModel;
 
 @WebServlet("/Solicitacao")
@@ -28,7 +27,7 @@ public class SolicitacaoServlet extends PadraoServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int sc;
 		String textResponse = "";
-		
+
 		resp.setContentType("application/json");
 
 		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
@@ -51,17 +50,16 @@ public class SolicitacaoServlet extends PadraoServlet {
 	}
 
 	@Override
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		resp.setContentType("application/json");
-		
+
 		String sessaoHash = req.getHeader("sessao");
 		String descricao = req.getParameter("descricao");
 
 		try {
 			int idCliente = Validacao.sessaoExiste(sessaoHash).getIdCliente();
-			
+
 			Validacao.validaSolicitacao(descricao);
 
 			SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();

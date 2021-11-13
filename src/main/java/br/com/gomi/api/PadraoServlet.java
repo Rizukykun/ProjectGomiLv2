@@ -7,11 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import br.com.gomi.business.Dados;
-import br.com.gomi.shared.SolicitacaoViewModel;
-
 public abstract class PadraoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -62,15 +57,13 @@ public abstract class PadraoServlet extends HttpServlet {
 		}
 	}
 
-	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	protected Integer metodoGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		return 501;
 
 	}
 
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
-				return 501;
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		return 501;
 
 	}
 
