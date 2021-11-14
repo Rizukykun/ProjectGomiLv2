@@ -58,11 +58,15 @@ public class SolicitacaoServlet extends PadraoServlet {
 		String descricao = req.getParameter("descricao");
 
 		try {
-			int idCliente = Validacao.sessaoExiste(sessaoHash).getIdCliente();
+			int idUsuario = Validacao.sessaoExiste(sessaoHash).getidUsuario();
 
 			Validacao.validaSolicitacao(descricao);
 
 			SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
+			
+			int idNaoAdm = Dados.recuperaUsuario(idUsuario).getIdNaoAdm();
+			int idCliente = Dados.recuperaNaoAdm(idNaoAdm).getIdCliente();
+			
 			ClienteViewModel cliente = Dados.recuperaClienteImcompleto(idCliente);// Cliente da sessão
 			solicitacao.setIdCliente(cliente.getIdCliente());
 			solicitacao.setCep(cliente.getCep());

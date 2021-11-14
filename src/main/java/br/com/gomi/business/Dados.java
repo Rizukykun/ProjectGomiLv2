@@ -155,7 +155,7 @@ public class Dados {
 
 		SessaoViewModel model = new SessaoViewModel();
 		model.setHashSessao(sha256hex);
-		model.setIdCliente(usuarioId);
+		model.setidUsuario(usuarioId);
 		model.setTempoLimite(LocalDateTime.now().plusHours(TempoDeSessao));
 
 		SessaoDAO dao = new SessaoDAO();
@@ -168,5 +168,15 @@ public class Dados {
 	public static ClienteViewModel recuperaClienteImcompleto(int idCliente) throws Exception {
 		ClienteViewModel cli = new ClienteDAO().consult(idCliente);
 		return cli;
+	}
+
+	public static UsuarioViewModel recuperaUsuario(int getidUsuario) throws Exception {
+		UsuarioViewModel u = new UsuarioDAO().consult(getidUsuario);
+		return u;
+	}
+
+	public static NaoAdmViewModel recuperaNaoAdm(int idNaoAdm) throws Exception {
+		NaoAdmViewModel na = new NaoAdmDAO().consult(idNaoAdm);
+		return na;
 	}
 }

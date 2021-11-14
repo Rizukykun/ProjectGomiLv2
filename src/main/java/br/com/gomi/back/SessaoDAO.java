@@ -12,7 +12,7 @@ public class SessaoDAO extends PadraoDAO<SessaoViewModel> {
 		String[] parametros = new String[3];
 		parametros[0] = model.getHashSessao();
 		parametros[1] = String.valueOf(model.getTempoLimite());
-		parametros[2] = String.valueOf(model.getIdCliente());
+		parametros[2] = String.valueOf(model.getidUsuario());
 		return parametros;
 	}
 
@@ -22,7 +22,7 @@ public class SessaoDAO extends PadraoDAO<SessaoViewModel> {
 		t.setHashSessao((String) registro.get("HashSessao"));
 		Timestamp timeStamp = (Timestamp) registro.get("TempoLimite");
 		t.setTempoLimite(timeStamp.toLocalDateTime());
-		t.setIdCliente((int) registro.get("IdCliente"));
+		t.setidUsuario((int) registro.get("IdUsuario"));
 		return t;
 	}
 
