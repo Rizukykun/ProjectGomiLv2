@@ -96,7 +96,7 @@ go
 create table Sessao (
 	HashSessao varchar(256) primary key,
 	TempoLimite datetime2,
-	IdCliente int foreign key references Cliente(IdCliente)
+	IdUsuario int foreign key references Usuario(IdUsuario)
 )
 go
 
@@ -330,9 +330,9 @@ begin
 end
 go
 
-create procedure spInsert_Sessao (@HashSessao varchar(256), @TempoLimite datetime2, @IdCliente int) as
+create procedure spInsert_Sessao (@HashSessao varchar(256), @TempoLimite datetime2, @IdUsuario int) as
 begin
-	insert into Sessao values (@HashSessao, @TempoLimite, @IdCliente)
+	insert into Sessao values (@HashSessao, @TempoLimite, @IdUsuario)
 
 	select 0.0 as 'Id'
 end

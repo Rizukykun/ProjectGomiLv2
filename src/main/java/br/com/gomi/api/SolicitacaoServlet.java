@@ -2,6 +2,7 @@ package br.com.gomi.api;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +14,6 @@ import com.google.gson.Gson;
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 import br.com.gomi.shared.ClienteViewModel;
-import br.com.gomi.shared.SessaoViewModel;
 import br.com.gomi.shared.SolicitacaoViewModel;
 
 @WebServlet("/Solicitacao")
@@ -23,20 +23,29 @@ public class SolicitacaoServlet extends PadraoServlet {
 	public SolicitacaoServlet() {
 		super();
 	}
-
+	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		int sc;
 		String textResponse = "";
-		
+
 		resp.setContentType("application/json");
 
-		int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
-
 		try {
-			SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
-			textResponse = new Gson().toJson(model);
-			sc = HttpServletResponse.SC_ACCEPTED;
+			if (req.getParameter("idSolicitacao").equals("all")) {
+
+				List<SolicitacaoViewModel> lista = Dados.recuperaSolicitacoes();
+				textResponse = new Gson().toJson(lista);
+				sc = HttpServletResponse.SC_ACCEPTED;
+
+			} else {
+
+				int idSolicitacao = Integer.valueOf(req.getParameter("idSolicitacao"));
+
+				SolicitacaoViewModel model = Dados.recuperaSolicitacao(idSolicitacao);
+				textResponse = new Gson().toJson(model);
+				sc = HttpServletResponse.SC_ACCEPTED;
+			}
 		} catch (Exception e) {
 			e.printStackTrace(resp.getWriter());
 			sc = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
@@ -51,20 +60,23 @@ public class SolicitacaoServlet extends PadraoServlet {
 	}
 
 	@Override
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		resp.setContentType("application/json");
-		
+
 		String sessaoHash = req.getHeader("sessao");
 		String descricao = req.getParameter("descricao");
 
 		try {
-			int idCliente = Validacao.sessaoExiste(sessaoHash).getIdCliente();
-			
+			int idUsuario = Validacao.sessaoExiste(sessaoHash).getidUsuario();
+
 			Validacao.validaSolicitacao(descricao);
 
 			SolicitacaoViewModel solicitacao = new SolicitacaoViewModel();
+
+			int idNaoAdm = Dados.recuperaUsuario(idUsuario).getIdNaoAdm();
+			int idCliente = Dados.recuperaNaoAdm(idNaoAdm).getIdCliente();
+
 			ClienteViewModel cliente = Dados.recuperaClienteImcompleto(idCliente);// Cliente da sessão
 			solicitacao.setIdCliente(cliente.getIdCliente());
 			solicitacao.setCep(cliente.getCep());

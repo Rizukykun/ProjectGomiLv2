@@ -7,24 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.http.entity.ContentType;
-
 import br.com.gomi.business.Dados;
 import br.com.gomi.business.Validacao;
 
 @WebServlet({ "/Login" })
 public class LoginServlet extends PadraoServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	public LoginServlet() {
 		super();
 	}
 
 	@Override
-	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	protected Integer metodoPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		resp.setContentType("application/json");
-		
+
 		String login = req.getParameter("login");
 		String senha = req.getParameter("senha");
 
@@ -32,13 +29,13 @@ public class LoginServlet extends PadraoServlet {
 			Validacao.validaLogin(login, senha);
 			char tipo = Validacao.validaTipoLogin(login); // Combinar ambos em um único método
 
-			int usuarioId; //Testar Hashes repetidos
-			
-			if(tipo == 'M')
+			int usuarioId; // Testar Hashes repetidos
+
+			if (tipo == 'M')
 				usuarioId = Dados.recuperaMotorista(login).getId();
 			else
 				usuarioId = Dados.recuperaCliente(login).getId();
-			
+
 			String sessaoHash = Dados.CriarSessão(usuarioId);
 
 			resp.getWriter().append("{ \"sessao\" : \"" + sessaoHash + "\" }");
