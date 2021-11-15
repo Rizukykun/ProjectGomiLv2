@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-.block {
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: #1e2e28;
-  color: rgb(255, 255, 255);
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-}
 
-.block:hover {
-  background-color: rgb(7, 17, 11);
-  color: rgb(45, 189, 81);
-}
-</style>
+<head>
+    <meta charset="UTF-8" />
+    <title>Página Principal - Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="js\PaginaPrincipal.js"></script>
+    <style>
+        .block {
+            display: block;
+            width: 100%;
+            border: none;
+            background-color: #1e2e28;
+            color: rgb(255, 255, 255);
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .block:hover {
+            background-color: rgb(7, 17, 11);
+            color: rgb(45, 189, 81);
+        }
+    </style>
 </head>
-<body>
+
+<body onload="load()">
 
     <div class="w3-sidebar w3-bar-block w3-border-right" style="width:25%">
         <a href="indexUserPage.html" class="w3-bar-item w3-button">Pagina do Usuario</a>
@@ -31,12 +36,14 @@
         <a href="" class="w3-bar-item w3-button">Sobre</a>
         <a href="indexHelp.html" class="w3-bar-item w3-button">Ajuda</a>
         <a href="IndexLogin.html" class="w3-bar-item w3-button">Sair</a>
-      </div>
-      
-      <div style="margin-left:25%">
+    </div>
 
-<h2><center>Bem-vindo *Nome do Motorista*</center></h2>
-<a href = "indexFazerSolicitacao.html" button class = "block" onclick="myFunction1()">Solicitar Coleta</button>
+    <div style="margin-left:25%">
+
+        <h2 id="nomeCliente">
+            <center>Bem-vindo </center>
+        </h2>
+        <a href="indexFazerSolicitacao.html" button class="block" onclick="myFunction1()">Solicitar Coleta</button>
 <a href = "indexUserPage.html" button class = "block" onclick="myFunction2()">Alterar Dados</button>
 <a href = "indexHistorico.html" button class = "block" onclick="myFunction3()">Histórico</button>
 </body>

@@ -45,7 +45,7 @@ public class BuscandoMotoristaController extends PadraoController {
         int idSolicitacao = Global.obtemInstancia().solicitacao.getId();
         MotoristaEncontradoInfoController encontrado = new MotoristaEncontradoInfoController();
 
-        Task task = new Task<Void>() {
+        Task<Void> task = new Task<Void>() {
             @Override
             public Void call() throws Exception {
                 boolean ativo = true;

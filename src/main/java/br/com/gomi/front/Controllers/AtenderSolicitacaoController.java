@@ -44,7 +44,7 @@ public class AtenderSolicitacaoController extends PadraoController {
         Dados.atualizaSolicitacao(model);
         PrincipalMController coletado = new PrincipalMController();
 
-        Task task = new Task<Void>() {
+        Task<Void> task = new Task<Void>() {
             @Override
             public Void call() throws Exception {
                 boolean ativo = true;
