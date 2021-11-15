@@ -26,6 +26,11 @@ public class UsuarioServlet extends PadraoServlet {
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.setCharacterEncoding("UTF-8");
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Headers", "*");
+		
 		int sc;
 		String textResponse = "";
 
