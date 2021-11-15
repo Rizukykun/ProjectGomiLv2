@@ -15,7 +15,18 @@ function logar() {
 
     fetch(url, myInit)
         .then(item => item.json())
-        .then(item => sessionStorage.setItem('sessao', item.sessao))
-        .then(() => window.location.href = 'indexPaginaPrincipal.html');
+        .then(item => direcionaUsuario(item))
+        //.then(item => sessionStorage.setItem('sessao', item.sessao))
+        //.then(() => window.location.href = 'indexPaginaPrincipal.html');
 
+}
+
+function direcionaUsuario(jayson) {
+    console.log(jayson)
+    sessionStorage.setItem('sessao', jayson.sessao)
+    if (jayson.tipo === 'C') {
+        window.location.href = 'indexPaginaPrincipal.html';
+    } else {
+        window.location.href = 'indexPaginaPrincipalFunc.html';
+    }
 }

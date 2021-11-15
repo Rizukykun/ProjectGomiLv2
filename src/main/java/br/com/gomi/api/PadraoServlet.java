@@ -20,6 +20,7 @@ public abstract class PadraoServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Headers", "*");
 		response.addHeader("Access-Control-Allow-Methods", methods);
 
 		super.doOptions(request, response);
