@@ -37,8 +37,11 @@ public class LoginServlet extends PadraoServlet {
 				usuarioId = Dados.recuperaCliente(login).getId();
 
 			String sessaoHash = Dados.CriarSessão(usuarioId);
+			String retorno = "{ \"sessao\" : \"" + sessaoHash + "\", ";
+			
+			retorno += "\"tipo\" : \"" + tipo + "\" }";
 
-			resp.getWriter().append("{ \"sessao\" : \"" + sessaoHash + "\" }");
+			resp.getWriter().append(retorno);
 			return HttpServletResponse.SC_CREATED;
 
 		} catch (Exception e) {
