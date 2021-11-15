@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <title>Solicitação</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js\FazerSolicitacao.js"></script>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -27,7 +28,7 @@
             resize: vertical;
         }
         
-        input[type=submit] {
+        input[type=button] {
             background-color: #04AA6D;
             color: white;
             padding: 12px 20px;
@@ -48,39 +49,41 @@
     </style>
 </head>
 
-<body>
+<body onload="load()">
 
     <h3>
         <center>Nova Coleta</center>
     </h3>
 
     <div class="container">
-        <form action="/action_page.php">
+        <form>
 
-            <input type="checkbox">
-            <label for="fname">Moveis</label>
-            <input type="text" id="fname" name="firstname" placeholder="Moveis">
-            <input type="checkbox">
+            <input type="checkbox" name="Moveis" class="cbx">
+            <label for="moveis">Moveis</label>
+            <input type="text" id="Moveis" name="moveis" placeholder="Moveis">
 
-            <label for="lname">Entulho</label>
-            <input type="text" id="lname" name="lastname" placeholder="Entulho">
-            <input type="checkbox">
+            <input type="checkbox" name="Entulho" class="cbx">
+            <label for="entulho">Entulho</label>
+            <input type="text" id="Entulho" name="entulho" placeholder="Entulho">
 
-            <label for="fname">Lixo Reciclavel</label>
-            <input type="text" id="fname" name="firstname" placeholder="Lixo reciclavel">
-            <input type="checkbox">
+            <input type="checkbox" name="Reciclavel" class="cbx">
+            <label for="reciclavel">Lixo Reciclavel</label>
+            <input type="text" id="Reciclavel" name="reciclavel" placeholder="Lixo reciclavel">
 
-            <label for="fname">Lixo Eletronico</label>
-            <input type="text" id="fname" name="firstname" placeholder="Lixo Eletronico">
-            <input type="checkbox">
+            <input type="checkbox" name="Eletronico" class="cbx">
+            <label for="eletronico">Lixo Eletronico</label>
+            <input type="text" id="Eletronico" name="eletronico" placeholder="Lixo Eletronico">
 
-            <label for="lname">Eletrodomesticos</label>
-            <input type="text" id="lname" name="lastname" placeholder="Eletrodomésticos">
+            <input type="checkbox" name="Eletrodomestico" class="cbx">
+            <label for="eletrodomesticos">Eletrodomesticos</label>
+            <input type="text" id="Eletrodomestico" name="eletrodomestico" placeholder="Eletrodomésticos">
 
             <label for="fname">Volume/Peso</label>
             <input type="text" id="fvolume" name="fvolume" placeholder="Digite um numero"><br><br>
 
-            <input type="submit" value="Solicitar">
+            <div id="erro"></div>
+
+            <input type="button" value="Solicitar" onclick="solicita()">
         </form>
     </div>
 
