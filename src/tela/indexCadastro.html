@@ -12,18 +12,20 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: black;
         }
-        
+
         * {
             box-sizing: border-box;
         }
+
         /* Add padding to containers */
-        
+
         .container {
             padding: 16px;
             background-color: white;
         }
+
         /* Full-width input fields */
-        
+
         input[type=text],
         input[type=password] {
             width: 100%;
@@ -33,20 +35,22 @@
             border: none;
             background: #f1f1f1;
         }
-        
+
         input[type=text]:focus,
         input[type=password]:focus {
             background-color: #ddd;
             outline: none;
         }
+
         /* Overwrite default styles of hr */
-        
+
         hr {
             border: 1px solid #f1f1f1;
             margin-bottom: 25px;
         }
+
         /* Set a style for the submit button */
-        
+
         .registerbtn {
             background-color: #04AA6D;
             color: white;
@@ -57,17 +61,19 @@
             width: 100%;
             opacity: 0.9;
         }
-        
+
         .registerbtn:hover {
             opacity: 1;
         }
+
         /* Add a blue text color to links */
-        
+
         a {
             color: dodgerblue;
         }
+
         /* Set a grey background color and center the text of the "sign in" section */
-        
+
         .signin {
             background-color: #f1f1f1;
             text-align: center;
@@ -77,46 +83,115 @@
 
 <body>
 
-    <form action="/action_page.php">
-        <div class="container">
-            <h1>Register</h1>
-            <p>Preencha para criar o cadastro do cliente</p>
-            <hr>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Insira o Email" name="email" id="email" required>
 
-            <label for="name_com"><b>Nome Completo</b></label>
-            <input type="text" placeholder="Nome Completo" name="name_com" id="name_com" required>
+<form action="/action_page.php">
+    <div class="container">
+</form>
+    <div>
+        <h1>Cadastro</h1>
+        <h1>Selecione o seu perfil</h1>
 
-            <label for="cpf"><b>CPF</b></label>
-            <input type="text" placeholder="***-***-***-**" name="CPF" id="CPF" required>
+              <input type="radio" id="cliente" name="fav_language" value="cliente">
+              <label for="html">Cliente</label><br>
+              <input type="radio" id="motorista" name="fav_language" value="motorista">
+              <label for="css">Motorista</label><br>
+        <p>Preencha para criar o cadastro do cliente</p>
+        <hr>
 
-            <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
-            <input type="text" placeholder="**/**/****" name="birth" id="birth" required>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Insira o Email" name="email" id="email" required>
 
-            <label for="Telefone"><b>Telefone</b></label>
-            <input type="text" placeholder="(11)912345678" name="cpf" id="cpf" required>
-            <!--
-            <label for="Forma de Pagamento"><b>Forma de Pagamento</b></label>
-            <input type="text" placeholder="Forma de pagamento" name="payment" id="payment" required>
-            -->
+        <label for="name_com"><b>Nome Completo</b></label>
+        <input type="text" placeholder="Nome Completo" name="name_com" id="name_com" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <label for="cpf"><b>CPF</b></label>
+        <input type="text" placeholder="***-***-***-**" name="CPF" id="CPF" required>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-            <hr>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
+        <input type="text" placeholder="**/**/****" name="birth" id="birth" required>
 
-            <button type="submit" class="registerbtn">Register</button>
-        </div>
+        <label for="Telefone"><b>Telefone</b></label>
+        <input type="text" placeholder="(**)* *****-****" name="phone" id="phone" required>
 
-        <div class="container signin">
-            <p>Ja tem uma conta? <a href="IndexLogin.html">Fazer Login</a>.</p>
-        </div>
-    </form>
+        <label for="Rua"><b>Rua</b></label>
+        <input type="text" placeholder="Nome da rua/avenida" name="rua" id="rua" required>
+
+        <label for="Numero"><b>Numero</b></label>
+        <input type="text" placeholder="Numero" name="numero" id="numero" required>
+
+        <label for="Complemento"><b>Complemento</b></label>
+        <input type="text" placeholder="Complemento" name="complement" id="complement">
+
+        <label for="Bairro"><b>Bairro</b></label>
+        <input type="text" placeholder="Bairro" name="bairro" id="bairro" required>
+
+        <label for="Cidade"><b>Cidade</b></label>
+        <input type="text" placeholder="Cidade" name="cidade" id="cidade" required>
+
+        <label for="CEP"><b>CEP</b></label>
+        <input type="text" placeholder="*****-***" name="cep" id="cep" required>
+
+        <label for="Forma de Pagamento"><b>Forma de Pagamento</b></label>
+        <input type="text" placeholder="Forma de pagamento" name="payment" id="payment" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    </div>
+    <div>
+        
+        <p>Preencha para criar o cadastro do motorista</p>
+        <hr>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Insira o Email" name="email" id="email" required>
+
+        <label for="name_com"><b>Nome Completo</b></label>
+        <input type="text" placeholder="Nome Completo" name="name_com" id="name_com" required>
+
+        <label for="cpf"><b>CPF</b></label>
+        <input type="text" placeholder="***-***-***-**" name="CPF" id="CPF" required>
+
+        <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
+        <input type="text" placeholder="**/**/****" name="birth" id="birth" required>
+
+        <label for="Telefone"><b>Telefone</b></label>
+        <input type="text" placeholder="(**)* *****-****" name="phone" id="phone" required>
+
+        <label for="Veiculo"><b>Tipo de Veiculo</b></label>
+        <input type="text" placeholder="Nome da rua/avenida" name="rua" id="rua" required>
+
+        <label for="CNH"><b>Numero da CNH</b></label>
+        <input type="text" placeholder="Número da CNH" name="numeroCNH" id="numeroCNH" required>
+
+        <label for="cnhExpiração"><b>Data de Expiração</b></label>
+        <input type="text" placeholder="**/**/****" name="expire" id="expire">
+
+
+        <label for="cnhCategoria"><b>Categoria CNH</b></label>
+        <input type="text" placeholder="A/B/C/D" name="category" id="category" required>
+
+        <label for="cargaSuportada"><b>Carga Suportada</b></label>
+        <input type="text" placeholder="****kg" name="carga" id="carga" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> 
+    </div>
+        <button type="submit" class="registerbtn">Register</button>
+    <div class="container signin">
+        <p>Ja tem uma conta? <a href="IndexLogin.html">Fazer Login</a>.</p>
+    </div>
+</div>
 
 </body>
 
