@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
     <meta charset="UTF-8" />
-    <title>Confirmação</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Confirmação do Pedido</title>
+    <style>
+        textarea {
+            resize: none;
+        }
+
+        .block {
+            display: block;
+            width: 20%;
+            border: none;
+            background-color: #1e2e28;
+            color: rgb(255, 255, 255);
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        
+        }
+
+        .block2 {
+            display: block;
+            width: 20%;
+            border: none;
+            background-color: #1e2e28;
+            color: rgb(255, 255, 255);
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Confirmação das Informações do Pedido</h1>
+    <h1>Confirmar Pedido</h1>
 
-    <form action="/action_page.php">
-        <label for="birthday">Defina a Data:</label>
-        <input type="date" id="data" name="data_date">
-    </form>
+    <button class="block">Proximo</button>
+    <p>
+        <p>
+            <label for="w3review">Informações Gerais do Pedido</label>
+        </p>
+        <textarea id="w3review" name="w3review" rows="10" cols="70">
 
-    <form action="/action_page.php">
-        <label for="appt">Defina o Horario:</label>
-        <input type="time" id="hora" name="hora_time">
+            </textarea>
+    </p>
 
-        <input type="submit" onclick="myFunction4()" value="Agendar">
-
-    </form>
-
-    <script>
-        function myFunction4() {
-            location.replace("https://www.w3schools.com")
-        }
-    </script>
-
+    <button class="block2">Voltar</button>
 </body>
 
 </html>
