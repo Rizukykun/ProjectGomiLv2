@@ -14,6 +14,7 @@ public abstract class PadraoServlet extends HttpServlet {
 
 	public PadraoServlet() {
 		super();
+		this.setMethods();
 	}
 
 	protected void doOptions(HttpServletRequest request, HttpServletResponse response)
@@ -28,6 +29,11 @@ public abstract class PadraoServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Headers", "*");
+		
 		int sc;
 		String textResponse = "";
 

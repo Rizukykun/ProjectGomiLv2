@@ -25,6 +25,9 @@ public class SolicitacaoMotoristaServlet extends PadraoServlet {
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Headers", "*");
+		resp.addHeader("Access-Control-Allow-Methods", methods);
 
 		String sessaoHash = req.getHeader("sessao");
 		int solicitacaoId = Integer.valueOf(req.getParameter("idSolicitacao"));
@@ -59,7 +62,7 @@ public class SolicitacaoMotoristaServlet extends PadraoServlet {
 			if (model.getIdMotorista() != null) {
 				resp.getWriter().append(new Gson().toJson(Dados.recuperaMotorista(model.getIdMotorista())));
 			} else {
-				resp.getWriter().append("{ null }");
+				resp.getWriter().append(null);
 			}
 			return HttpServletResponse.SC_OK;
 		} catch (Exception e) {
@@ -70,7 +73,7 @@ public class SolicitacaoMotoristaServlet extends PadraoServlet {
 
 	@Override
 	protected void setMethods() {
-		methods = "GET";
+		methods = "PUT, GET";
 	}
 
 }

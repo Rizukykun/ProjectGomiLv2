@@ -4,12 +4,13 @@
 
 <head>
     <meta charset="UTF-8" />
+    <script src="js\Confirmacao.js"></script>
     <title>Confirmação do Pedido</title>
     <style>
         textarea {
             resize: none;
         }
-
+        
         .block {
             display: block;
             width: 20%;
@@ -20,9 +21,8 @@
             font-size: 16px;
             cursor: pointer;
             text-align: center;
-        
         }
-
+        
         .block2 {
             display: block;
             width: 20%;
@@ -33,26 +33,23 @@
             font-size: 16px;
             cursor: pointer;
             text-align: center;
-        
         }
     </style>
 </head>
 
-<body>
+<body onload="load()">
 
     <h1>Confirmar Pedido</h1>
 
-    <button class="block">Proximo</button>
+    <button class="block" onclick="aceita()">Proximo</button>
     <p>
         <p>
             <label for="w3review">Informações Gerais do Pedido</label>
         </p>
-        <textarea id="w3review" name="w3review" rows="10" cols="70">
-
-            </textarea>
+        <textarea id="w3review" name="w3review" rows="10" cols="70" readonly></textarea>
     </p>
 
-    <button class="block2">Voltar</button>
+    <button class="block2" onclick="voltar()">Voltar</button>
 </body>
 
 </html>
