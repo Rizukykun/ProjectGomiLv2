@@ -6,6 +6,25 @@
     <title>Agendamento</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <style>
+        .block {
+            display: block;
+            width: 100%;
+            border: none;
+            background-color: #1e2e28;
+            color: rgb(255, 255, 255);
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .block:hover {
+            background-color: rgb(7, 17, 11);
+            color: rgb(45, 189, 81);
+        }
+    </style>
 </head>
 
 <body>
@@ -21,15 +40,9 @@
         <label for="appt">Defina o Horario:</label>
         <input type="time" id="hora" name="hora_time">
 
-        <input type="submit" onclick="myFunction4()" value="Agendar">
+        <a href = "indexMotoristaEncontrado.html" button class="block" onclick="myFunction1()">Agendar</button>
 
     </form>
-
-    <script>
-        function myFunction4() {
-            location.replace("https://www.w3schools.com")
-        }
-    </script>
 
 </body>
 
