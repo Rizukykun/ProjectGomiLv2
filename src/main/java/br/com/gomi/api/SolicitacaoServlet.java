@@ -25,6 +25,10 @@ public class SolicitacaoServlet extends PadraoServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		resp.setCharacterEncoding("UTF-8");
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Headers", "*");
+		
 		int sc;
 		String textResponse = "";
 

@@ -71,7 +71,7 @@ function solicita() {
 
     function trolha(jayson) {
         sessionStorage.setItem('idColeta', jayson.id);
-        //mandar para a próxima tela
+        window.location.href = 'indexProcurandoMotorista.html';
     }
 
 

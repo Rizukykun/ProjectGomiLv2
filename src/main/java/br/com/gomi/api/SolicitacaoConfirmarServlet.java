@@ -22,6 +22,9 @@ public class SolicitacaoConfirmarServlet extends PadraoServlet {
 
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Headers", "*");
+		resp.addHeader("Access-Control-Allow-Methods", methods);
 
 		String sessaoHash = req.getHeader("sessao");
 		int solicitacaoId = Integer.valueOf(req.getParameter("idSolicitacao"));
@@ -70,7 +73,7 @@ public class SolicitacaoConfirmarServlet extends PadraoServlet {
 
 		try {
 			if (Dados.recuperaSolicitacao(solicitacaoId).isAberto()) {
-				resp.getWriter().append(" \"status\" : \"aberto\" ");
+				resp.getWriter().append("{ \"status\" : \"aberto\" }");
 				return HttpServletResponse.SC_OK;
 			} else {
 				resp.getWriter().append("{ \"status\" : \"fechado\" }");
@@ -84,7 +87,7 @@ public class SolicitacaoConfirmarServlet extends PadraoServlet {
 
 	@Override
 	protected void setMethods() {
-		this.methods = "PUT";
+		methods = "PUT, GET";
 	}
 
 }
