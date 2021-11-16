@@ -5,27 +5,25 @@
 
     <meta charset="UTF-8" />
     <title>Cadastro</title>
-
+    <script src="js\Cadastro.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: black;
         }
-
+        
         * {
             box-sizing: border-box;
         }
-
         /* Add padding to containers */
-
+        
         .container {
             padding: 16px;
             background-color: white;
         }
-
         /* Full-width input fields */
-
+        
         input[type=text],
         input[type=password] {
             width: 100%;
@@ -35,22 +33,20 @@
             border: none;
             background: #f1f1f1;
         }
-
+        
         input[type=text]:focus,
         input[type=password]:focus {
             background-color: #ddd;
             outline: none;
         }
-
         /* Overwrite default styles of hr */
-
+        
         hr {
             border: 1px solid #f1f1f1;
             margin-bottom: 25px;
         }
-
         /* Set a style for the submit button */
-
+        
         .registerbtn {
             background-color: #04AA6D;
             color: white;
@@ -61,137 +57,141 @@
             width: 100%;
             opacity: 0.9;
         }
-
+        
         .registerbtn:hover {
             opacity: 1;
         }
-
         /* Add a blue text color to links */
-
+        
         a {
             color: dodgerblue;
         }
-
         /* Set a grey background color and center the text of the "sign in" section */
-
+        
         .signin {
             background-color: #f1f1f1;
             text-align: center;
+        }
+        
+        #cadastroMotorista,
+        #cadastroCliente,
+        #registerbtn {
+            display: none;
         }
     </style>
 </head>
 
 <body>
 
-
-
-<form action="/action_page.php">
-    <div class="container">
-</form>
+    <form>
+        <div class="container">
+    </form>
     <div>
         <h1>Cadastro</h1>
         <h1>Selecione o seu perfil</h1>
 
-              <input type="radio" id="cliente" name="fav_language" value="cliente">
-              <label for="html">Cliente</label><br>
-              <input type="radio" id="motorista" name="fav_language" value="motorista">
-              <label for="css">Motorista</label><br>
-        <p>Preencha para criar o cadastro do cliente</p>
-        <hr>
+        <input type="radio" id="rbCliente" onclick="ligaCliente()" name="fav_language" value="cliente">
+        <label for="html">Cliente</label><br>
+        <input type="radio" id="rbMotorista" onclick="ligaMotorista()" name="fav_language" value="motorista">
+        <label for="css">Motorista</label><br>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Insira o Email" name="email" id="email" required>
+        <div id="cadastroCliente">
+            <p>Preencha para criar o cadastro do cliente</p>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Insira o Email" name="email" id="cemail" required>
 
-        <label for="name_com"><b>Nome Completo</b></label>
-        <input type="text" placeholder="Nome Completo" name="name_com" id="name_com" required>
+            <label for="name_com"><b>Nome Completo</b></label>
+            <input type="text" placeholder="Nome Completo" name="name_com" id="cname_com" required>
 
-        <label for="cpf"><b>CPF</b></label>
-        <input type="text" placeholder="***-***-***-**" name="CPF" id="CPF" required>
+            <label for="cpf"><b>CPF</b></label>
+            <input type="text" placeholder="***-***-***-**" name="CPF" id="cCPF" required>
 
-        <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
-        <input type="text" placeholder="**/**/****" name="birth" id="birth" required>
+            <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
+            <input type="text" placeholder="**/**/****" name="birth" id="cbirth" required>
 
-        <label for="Telefone"><b>Telefone</b></label>
-        <input type="text" placeholder="(**)* *****-****" name="phone" id="phone" required>
+            <label for="Telefone"><b>Telefone</b></label>
+            <input type="text" placeholder="(**)* *****-****" name="phone" id="cphone" required>
 
-        <label for="Rua"><b>Rua</b></label>
-        <input type="text" placeholder="Nome da rua/avenida" name="rua" id="rua" required>
+            <label for="Rua"><b>Rua</b></label>
+            <input type="text" placeholder="Nome da rua/avenida" name="rua" id="crua" required>
 
-        <label for="Numero"><b>Numero</b></label>
-        <input type="text" placeholder="Numero" name="numero" id="numero" required>
+            <label for="Numero"><b>Numero</b></label>
+            <input type="text" placeholder="Numero" name="numero" id="cnumero" required>
 
-        <label for="Complemento"><b>Complemento</b></label>
-        <input type="text" placeholder="Complemento" name="complement" id="complement">
+            <label for="Complemento"><b>Complemento</b></label>
+            <input type="text" placeholder="Complemento" name="complement" id="ccomplement">
 
-        <label for="Bairro"><b>Bairro</b></label>
-        <input type="text" placeholder="Bairro" name="bairro" id="bairro" required>
+            <label for="Bairro"><b>Bairro</b></label>
+            <input type="text" placeholder="Bairro" name="bairro" id="cbairro" required>
 
-        <label for="Cidade"><b>Cidade</b></label>
-        <input type="text" placeholder="Cidade" name="cidade" id="cidade" required>
+            <label for="Cidade"><b>Cidade</b></label>
+            <input type="text" placeholder="Cidade" name="cidade" id="ccidade" required>
 
-        <label for="CEP"><b>CEP</b></label>
-        <input type="text" placeholder="*****-***" name="cep" id="cep" required>
+            <label for="CEP"><b>CEP</b></label>
+            <input type="text" placeholder="*****-***" name="cep" id="ccep" required>
 
-        <label for="Forma de Pagamento"><b>Forma de Pagamento</b></label>
-        <input type="text" placeholder="Forma de pagamento" name="payment" id="payment" required>
+            <label for="Forma de Pagamento"><b>Forma de Pagamento</b></label>
+            <input type="text" placeholder="Forma de pagamento" name="payment" id="cpayment" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="cpsw" required>
 
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-        <hr>
-        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="cpsw-repeat" required>
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        </div>
     </div>
-    <div>
-        
+    <div id="cadastroMotorista">
+
         <p>Preencha para criar o cadastro do motorista</p>
         <hr>
 
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Insira o Email" name="email" id="email" required>
+        <input type="text" placeholder="Insira o Email" name="email" id="memail" required>
 
         <label for="name_com"><b>Nome Completo</b></label>
-        <input type="text" placeholder="Nome Completo" name="name_com" id="name_com" required>
+        <input type="text" placeholder="Nome Completo" name="name_com" id="mname_com" required>
 
         <label for="cpf"><b>CPF</b></label>
-        <input type="text" placeholder="***-***-***-**" name="CPF" id="CPF" required>
+        <input type="text" placeholder="***-***-***-**" name="CPF" id="mCPF" required>
 
         <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
-        <input type="text" placeholder="**/**/****" name="birth" id="birth" required>
+        <input type="text" placeholder="**/**/****" name="birth" id="mbirth" required>
 
         <label for="Telefone"><b>Telefone</b></label>
-        <input type="text" placeholder="(**)* *****-****" name="phone" id="phone" required>
+        <input type="text" placeholder="(**)* *****-****" name="phone" id="mphone" required>
 
         <label for="Veiculo"><b>Tipo de Veiculo</b></label>
-        <input type="text" placeholder="Nome da rua/avenida" name="rua" id="rua" required>
+        <input type="text" placeholder="(Marca, Modelo, Ano)" name="Veiculo" id="mveiculo" required>
 
         <label for="CNH"><b>Numero da CNH</b></label>
-        <input type="text" placeholder="Número da CNH" name="numeroCNH" id="numeroCNH" required>
+        <input type="text" placeholder="Número da CNH" name="numeroCNH" id="mnumeroCNH" required>
 
         <label for="cnhExpiração"><b>Data de Expiração</b></label>
-        <input type="text" placeholder="**/**/****" name="expire" id="expire">
+        <input type="text" placeholder="**/**/****" name="expire" id="mexpire">
 
 
         <label for="cnhCategoria"><b>Categoria CNH</b></label>
-        <input type="text" placeholder="A/B/C/D" name="category" id="category" required>
+        <input type="text" placeholder="A/B/C/D/E" name="category" id="mcategory" required>
 
         <label for="cargaSuportada"><b>Carga Suportada</b></label>
-        <input type="text" placeholder="****kg" name="carga" id="carga" required>
+        <input type="text" placeholder="****kg" name="carga" id="mcarga" required>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <input type="password" placeholder="Enter Password" name="psw" id="mpsw" required>
 
         <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="mpsw-repeat" required>
         <hr>
-        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> 
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     </div>
-        <button type="submit" class="registerbtn">Register</button>
+    <button type="button" class="registerbtn" onclick="enviaDados()" id="registerbtn">Register</button>
     <div class="container signin">
         <p>Ja tem uma conta? <a href="IndexLogin.html">Fazer Login</a>.</p>
     </div>
-</div>
+
 
 </body>
 

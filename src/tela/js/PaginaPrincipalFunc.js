@@ -56,6 +56,6 @@ function populaColetas(jayson) {
         listaColetas.append(itemColeta);
     }
 
-    var myVar = setTimeout(verificaSolicitacoes, 10000); //lembrar
+    var myVar = setTimeout(verificaSolicitacoes, 7000);
 
 }

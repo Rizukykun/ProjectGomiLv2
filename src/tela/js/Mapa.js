@@ -1,10 +1,47 @@
 function myMap() {
+    var directionsService = new google.maps.DirectionsService();
+    var directionsRenderer = new google.maps.DirectionsRenderer();
+
+
+    var start = 'Rua General Lecor';
+    var end = 'Rua Mario Pasin';
+    var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+    };
+    directionsService.route(request, function(result, status) {
+        if (status == 'OK') {
+            directionsRenderer.setDirections(result);
+        }
+    });
+
+
+
     var mapProp = {
-        center: new google.maps.LatLng(51.508742, -0.120850),
-        zoom: 5,
+        center: new google.maps.LatLng(-23.7306651, -46.5837065),
+        zoom: 15,
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    directionsRenderer.setMap(map);
 }
+
+
+function calcRoute() {
+    var start = 'Rua General Lecor';
+    var end = 'Rua Mario Pasin';
+    var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+    };
+    directionsService.route(request, function(result, status) {
+        if (status == 'OK') {
+            directionsRenderer.setDirections(result);
+        }
+    });
+}
+
 
 function load() {
 
